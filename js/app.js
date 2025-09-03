@@ -17,7 +17,7 @@ const endpoint = 'https://graphql.anilist.co';
       "Lee Quick","Lex Lang","Linda Young","Lisa Ortiz","Lisette Diaz","Macy Anne Johnson","Major Attaway",
       "Marcus D. Stimac","Marcus M. Mauldin","Marisa Lenti","Meredith McCoy","Morgan Berry","Natalie Rose",
       "Oscar Seung","R. Bruce Elliott","Risa Mei","Sandy Fox","Stephanie Young","Tiffany Vollmer",
-      "Tom Laflin","Tyson Rinehart","Veronica Laux","Wendee Lee","Wendy Powell"
+      "Tom Laflin","Tyson Rinehart","Veronica Laux","Wendee Lee","Wendy Powell","Zac Loera","Branden Loera"
     ];
     const _norm = s => (s||'').toLowerCase().replace(/\s+/g,' ').trim();
     const ROSTER_SET = new Set(ROSTER.map(_norm));
