@@ -14,7 +14,7 @@ const endpoint = 'https://graphql.anilist.co';
       "Chris Patton","Cristina Vee","Daman Mills","Dani Chambers","Dave Trosko","Elise Baughman",
       "Emi Lo","Emily J. Fajardo","Emily Fajardo","Greg Dulcie","Howard Wang","Jessica Cavanagh","Jim Foronda",
       "John Gremillion","Johnny Yong Bosch","Kara Edwards","Krystal LaPorte","Lauren Landa","Leah Clark",
-      "Lee Quick","Lex Lang","Linda Young","Lisa Ortiz","Lisette Monique Diaz","Macy Anne Johnson","Major Attaway",
+      "Lee Quick","Lex Lang","Linda Young","Lisa Ortiz","Lisette Monique Diaz","Lisette Diaz","Macy Anne Johnson","Major Attaway",
       "Marcus D. Stimac","Marcus M. Mauldin","Marisa Lenti","Meredith McCoy","Morgan Berry","Natalie Rose",
       "Oscar Seung","R. Bruce Elliott","Risa Mei","Sandy Fox","Stephanie Young","Tiffany Vollmer",
       "Tom Laflin","Tyson Rinehart","Veronica Laux","Wendee Lee","Wendy Powell","Zac Loera","Branden Loera","Spencer Liles"
