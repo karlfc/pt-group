@@ -12,7 +12,7 @@ const endpoint = 'https://graphql.anilist.co';
       "Aaron Roberts","Amanda Gish","Barbara Goodson","Barry Yandell","Bill Butts","Brian Beacock",
       "Brian Mathis","Brianna Roberts","Bryan Massey","Bryn Apprill","Cedric Williams","Chris Cason",
       "Chris Patton","Cristina Vee","Daman Mills","Dani Chambers","Dave Trosko","Elise Baughman",
-      "Emi Lo","Emily J. Fajardo","Greg Dulcie","Howard Wang","Jessica Cavanagh","Jim Foronda",
+      "Emi Lo","Emily J. Fajardo","Emily Fajardo","Greg Dulcie","Howard Wang","Jessica Cavanagh","Jim Foronda",
       "John Gremillion","Johnny Yong Bosch","Kara Edwards","Krystal LaPorte","Lauren Landa","Leah Clark",
       "Lee Quick","Lex Lang","Linda Young","Lisa Ortiz","Lisette Monique Diaz","Macy Anne Johnson","Major Attaway",
       "Marcus D. Stimac","Marcus M. Mauldin","Marisa Lenti","Meredith McCoy","Morgan Berry","Natalie Rose",
