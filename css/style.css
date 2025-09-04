@@ -28,16 +28,3 @@ header {
   object-fit: cover;
   border-radius: .25rem;
 }
-
-  /* ===== Skip Link ===== */
-  .skip-link{
-    position: absolute; left: -9999px; top: auto; width:1px; height:1px; overflow:hidden;
-  }
-  .skip-link:focus{
-    left: 1rem; top: 1rem; width: auto; height: auto;
-    background: #fff; color: #000; padding: .5rem .75rem; border: 2px solid #000; z-index: 1000;
-  }
-
-
-
-  
