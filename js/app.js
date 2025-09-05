@@ -295,7 +295,7 @@ if (els.form && els.q && els.results && els.status) {
     const list = rows.map(r => `
       <li class="list-group-item d-flex align-items-start">
         <span class="va fw-semibold">${r.va}</span>
-        <span class="ms-2" style="font-size:.8rem; padding-top:3px;">as ${r.character}</span>
+        <span class="ms-2">as ${r.character}</span>
         ${r.vaUrl ? `<a class="ms-auto small" href="${r.vaUrl}" target="_blank" rel="noopener">AniList</a>` : ``}
       </li>
     `).join('') || '<li class="list-group-item">No matching entries.</li>';
@@ -534,9 +534,9 @@ if (els.actorSelect && els.actorRun && els.actorCopy && els.actorRoles) {
 
     const count = roles.length;
     const list = roles.map(r => `
-      <li class="list-group-item d-flex">
-        <span class="fw-semibold flex-shrink-0">${r.series}</span>
-        <span class="ms-2" style="font-size:.8rem; padding-top:3px;">as ${r.character}</span>
+      <li class="list-group-item d-flex align-items-start">
+        <span class="fw-semibold flex-shrink-0" style="max-width:18ch">${r.series}</span>
+        <span class="ms-2">as ${r.character}</span>
       </li>
     `).join('') || '<li class="list-group-item">No roles found.</li>';
 
