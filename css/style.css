@@ -28,3 +28,7 @@ header {
   object-fit: cover;
   border-radius: .25rem;
 }
+
+/*Pop Table*/
+  .table thead th { white-space: nowrap; }
+  .form-control::placeholder { color: #6c757d; }

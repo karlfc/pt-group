@@ -577,3 +577,30 @@ if (els.actorSelect && els.actorRun && els.actorCopy && els.actorRoles) {
     }
   }
 })();
+
+/* =========================================================================
+TABLE SORTER.js
+   ========================================================================= */ 
+   
+    (function() {
+        const input = document.getElementById('filter-input');
+        const reset = document.getElementById('reset-btn');
+        const rows = Array.from(document.querySelectorAll('#data-body tr'));
+
+        function normalize(s) { return (s || '').toLowerCase(); }
+
+        function filterTable() {
+          const q = normalize(input.value);
+          rows.forEach(tr => {
+            const text = normalize(tr.textContent);
+            tr.style.display = text.includes(q) ? '' : 'none';
+          });
+        }
+
+        input.addEventListener('input', filterTable);
+        reset.addEventListener('click', () => {
+          input.value = '';
+          filterTable();
+          input.focus();
+        });
+      })();
