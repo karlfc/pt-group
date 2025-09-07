@@ -21,7 +21,7 @@ const els = {
 /* ===== Powell Talent roster (sample; extend freely) ===== */
 const ROSTER = [
   "Aaron Roberts","Amanda Gish","Barbara Goodson","Barry Yandell","Bill Butts","Brian Beacock",
-  "Brian Mathis","Brianna Roberts","Bryan Massey","Bryn Apprill","Cedric Williams","Chris Cason",
+  "Brian Mathis","Brianna Roberts","Bryan Massey","Bryn Apprill","Cedric Williams",
   "Chris Patton","Cristina Vee","Daman Mills","Dani Chambers","Dave Trosko","Elise Baughman",
   "Emi Lo","Emily Fajardo","Greg Dulcie","Howard Wang","Jessica Cavanagh","Jim Foronda",
   "John Gremillion","Johnny Yong Bosch","Kara Edwards","Krystal LaPorte","Lauren Landa","Leah Clark",
