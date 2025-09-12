@@ -32,6 +32,15 @@ const ROSTER = [
   "Oscar Seung","Tom Laflin","Spencer Liles","Lee Quick","Tiffany Vollmer","Chris Cason","Wendy Powell","Lisette Diaz","Zac Loera","Branden Loera"
 ].sort((a,b)=>a.localeCompare(b, undefined, {sensitivity:'base'}));
 
+/* ===== Actor search fallbacks (AniList alternate names) ===== */
+const NAME_FALLBACKS = {
+  [normalizeName('Cristina Vee')]: [
+    'Cristina Danielle Valenzuela',
+    'Cristina Vee',
+    'Cristina Vox'
+  ]
+};
+
 /* ===== State for series->cast pagination ===== */
 let last = { media: null, pageInfo: null, edges: [], pagesFetched: 0, fetchedAll: false };
 
@@ -88,8 +97,26 @@ query ($search: String, $page: Int){
 /* ===== Utilities ===== */
 function setBusy(el, busy){ if(el) el.setAttribute('aria-busy', busy ? 'true' : 'false'); }
 function seriesTitle(m){ return m?.title?.english || m?.title?.romaji || 'Series'; }
+
+// Normalize names for safer matching across variations (punctuation, accents, spacing)
+function normalizeName(s){
+  return (s || '')
+    .toLowerCase()
+    .normalize('NFKD')                 // split accents
+    .replace(/[\u0300-\u036f]/g, '')  // remove diacritics
+    .replace(/[^a-z0-9]+/g, ' ')       // drop punctuation to spaces
+    .trim()
+    .replace(/\s+/g, ' ');            // collapse whitespace
+}
+
+// Roster matcher: exact or contained match after normalization
 function byRosterOnly(name){
-  return ROSTER.some(r => r.localeCompare(name, undefined, {sensitivity:'base'}) === 0);
+  const n = normalizeName(name);
+  if(!n) return false;
+  return ROSTER.some(r => {
+    const rr = normalizeName(r);
+    return rr === n || rr.includes(n) || n.includes(rr);
+  });
 }
 function copyText(text){
   if(navigator.clipboard && window.isSecureContext){
@@ -463,7 +490,28 @@ if (els.actorSelect && els.actorRun && els.actorCopy && els.actorRoles) {
     }
   });
 
+  // Wrapper that tries fallback names if initial search is weak
   async function fetchActorRoles(actorName){
+    const tried = new Set();
+    const key = normalizeName(actorName);
+    const candidates = [actorName, ...(NAME_FALLBACKS[key] || [])]
+      .map(s => s && s.trim())
+      .filter(Boolean)
+      .filter(s => { const k = normalizeName(s); if(tried.has(k)) return false; tried.add(k); return true; });
+
+    let best = null;
+    for(const cand of candidates){
+      const res = await fetchActorRolesSingle(cand);
+      // Prefer a result that actually has roles
+      if(!res.notFound && res.roles.length){ return res; }
+      // Keep the first non-notFound as a fallback if no roles found anywhere
+      if(!best || (!res.notFound && best.notFound)) best = res;
+    }
+    return best || { roles: [], staffUrl: '', notFound: true };
+  }
+
+  // Core fetch for a single search term
+  async function fetchActorRolesSingle(actorName){
     let page = 1;
     let roles = [];
     let staffUrl = '';
