@@ -18,6 +18,7 @@ const els = {
   actorRoles: document.getElementById('actor-roles')
 };
 
+
 /* ===== Powell Talent roster (sample; extend freely) ===== */
 const ROSTER = [
   "Aaron Roberts","Amanda Gish","Barbara Goodson","Barry Yandell","Bill Butts","Brian Beacock",
