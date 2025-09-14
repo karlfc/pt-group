@@ -34,9 +34,26 @@ const ROSTER = [
 
 /* ===== Actor search fallbacks (AniList alternate names) ===== */
 const NAME_FALLBACKS = {
+  // Cristina Vee (AniList lists multiple variants under Cristina Valenzuela)
   [normalizeName('Cristina Vee')]: [
-    'Cristina Danielle Valenzuela',
     'Cristina Vee',
+    'Cristina Valenzuela',
+    'Cristina Danielle Valenzuela',
+    'Cristina D. Valenzuela',
+    'Cristina Vox'
+  ],
+  [normalizeName('Cristina Valenzuela')]: [
+    'Cristina Valenzuela',
+    'Cristina Vee',
+    'Cristina Danielle Valenzuela',
+    'Cristina D. Valenzuela',
+    'Cristina Vox'
+  ],
+  [normalizeName('Cristina Danielle Valenzuela')]: [
+    'Cristina Danielle Valenzuela',
+    'Cristina Valenzuela',
+    'Cristina Vee',
+    'Cristina D. Valenzuela',
     'Cristina Vox'
   ]
 };
@@ -110,12 +127,30 @@ function normalizeName(s){
 }
 
 // Roster matcher: exact or contained match after normalization
+function nameVariants(raw){
+  const key = normalizeName(raw);
+  const set = new Set();
+  if(key) set.add(key);
+  const fbs = NAME_FALLBACKS[key] || [];
+  fbs.forEach(v => {
+    const nv = normalizeName(v);
+    if(nv) set.add(nv);
+  });
+  return set;
+}
+
+// Roster matcher with AniList alternate names support
 function byRosterOnly(name){
-  const n = normalizeName(name);
-  if(!n) return false;
+  const nset = nameVariants(name);
+  if(nset.size === 0) return false;
   return ROSTER.some(r => {
-    const rr = normalizeName(r);
-    return rr === n || rr.includes(n) || n.includes(rr);
+    const rset = nameVariants(r);
+    for(const nv of nset){
+      for(const rv of rset){
+        if(rv === nv || rv.includes(nv) || nv.includes(rv)) return true;
+      }
+    }
+    return false;
   });
 }
 function copyText(text){
@@ -582,6 +617,10 @@ if (els.actorSelect && els.actorRun && els.actorCopy && els.actorRoles) {
     }
 
     const count = roles.length;
+    const includesRankingOfKings = roles.some(r => {
+      const s = (r.series || '').toLowerCase();
+      return s.includes('ranking of kings') || s.includes('ousama ranking') || s.includes('treasure chest of courage');
+    });
     const list = roles.map(r => `
       <li class="list-group-item d-flex align-items-start">
         <span class="fw-semibold flex-shrink-0" style="max-width:18ch">${r.series}</span>
@@ -597,6 +636,9 @@ if (els.actorSelect && els.actorRun && els.actorCopy && els.actorRoles) {
               ? `<a href="${staffUrl}" target="_blank" rel="noopener">${actorName}</a>`
               : actorName }
             <small class="text-secondary">(${count})</small>
+            ${ includesRankingOfKings
+                ? '<span class="badge bg-success ms-2">Includes Ranking of Kings</span>'
+                : '<span class="badge bg-secondary ms-2">No Ranking of Kings</span>' }
           </h3>
           <ul id="actor-roles-list" class="list-group" aria-label="Roles list for ${actorName}">${list}</ul>
         </div>
@@ -634,7 +676,9 @@ TABLE SORTER.js
     (function() {
         const input = document.getElementById('filter-input');
         const reset = document.getElementById('reset-btn');
-        const rows = Array.from(document.querySelectorAll('#data-body tr'));
+        const tbody = document.getElementById('data-body');
+        if (!input || !reset || !tbody) return; // only run on pages with the Funko table
+        const rows = Array.from(tbody.querySelectorAll('tr'));
 
         function normalize(s) { return (s || '').toLowerCase(); }
 

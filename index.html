@@ -7,18 +7,31 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 
+  <style>
+    .header-logo{ height:96px; width:auto; }
+    @media (max-width: 480px){ .header-logo{ height:64px; } }
+  </style>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
 
   <div class="container py-4">
     
-    <header class="mb-3 d-flex align-items-center gap-3" role="banner">
-      <!-- Logo (place pt-bw-round@2x.png next to this HTML) -->
-      <img src="img/pt-bw-round@2x.png" alt="Powell Talent" style="height:96px; width:auto;">
-      <div class="flex-fill">
-        <h1 class="h3 mb-1">Booking Research Tool</h1>
-        <p class="mb-0 small">Ver 1.1</p>
+    <header class="mb-3" role="banner">
+      <div class="d-flex align-items-center gap-3">
+        <!-- Logo (place pt-bw-round@2x.png next to this HTML) -->
+        <img src="img/pt-bw-round@2x.png" alt="Powell Talent" class="header-logo">
+        <div class="flex-fill">
+          <h1 class="h3 mb-1">Booking Research Tool</h1>
+          <p class="mb-2 small">Roles and Series</p>
+          <nav aria-label="Primary">
+            <ul class="nav nav-pills">
+              <li class="nav-item"><a class="nav-link rounded-pill active" aria-current="page" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link rounded-pill" href="cards.html">Travel</a></li>
+              <li class="nav-item"><a class="nav-link rounded-pill" href="funkos.html">Pops</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
     </header>
 
@@ -75,100 +88,9 @@
       <div id="status" class="small mb-2 visually-hidden" role="status" aria-live="polite">Idle</div>
 
       <section id="results" class="row g-3" aria-label="Search results"></section>
-      <!-- <hr class="my-4">
-      <section>
-        <h2 class="h5 my-4"><span class="border border-1 py-2 px-4 bg-dark text-light rounded-pill">Actor's Funko Pops</span></h2>
-        <section id="funko"></section>
-
-      </section> -->
- <section class="py-4 my-4"><hr></section>
-      <section>
-       
-          <h2 class="h5 pt-4 my-4"><span class="border border-1 py-2 px-4 bg-dark text-light rounded-pill">Funko Pops by Voice Actor</span></h2>
-        <p class="text-muted mb-4">Widely available figures for major anime roles.</p>
-         <div class="row gy-3 align-items-center mb-3">
-        <div class="col-12 col-md-6">
-          <label for="filter-input" class="form-label mb-1 visually-hidden">Filter</label>
-          <input id="filter-input" class="form-control" type="search"
-                 placeholder="Type to filter by actor or character…" aria-label="Filter table" />
-        </div>
-        <div class="col-12 col-md-6 text-md-end">
-          <button id="reset-btn" class="btn btn-outline-secondary">Reset</button>
-        </div>
-      </div>
-
-      <div class="table-responsive">
-        <table class="table table-striped table-hover align-middle">
-          <thead class="table-dark">
-            <tr>
-              <th scope="col">Voice Actor</th>
-              <th scope="col">Major Character(s)</th>
-              <th scope="col">Funko Pop Available?</th>
-            </tr>
-          </thead>
-          <tbody id="data-body">
-            <tr><td>Aaron Roberts</td><td>Uta (Tokyo Ghoul)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Barbara Goodson</td><td>Puar (Dragon Ball Z)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Brian Beacock</td><td>Monokuma (Danganronpa)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Brian Mathis</td><td>Monkey D. Garp (One Piece), Elias Ainsworth (Magus Bride)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Bryan Massey</td><td>Oolong (Dragon Ball), Monkey D. Dragon (One Piece)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Bryn Apprill</td><td>Historia Reiss (Attack on Titan)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Chris Cason</td><td>Gluttony (FMA: Brotherhood)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Chris Patton</td><td>Greed (FMA: Brotherhood)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Cristina Vee</td><td>Sailor Mars (Sailor Moon), Killua (HxH)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Cynthia Cranz</td><td>Chi-Chi (Dragon Ball), Botan (Yu Yu Hakusho)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Daman Mills</td><td>Genya Shinazugawa (Demon Slayer)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Elise Baughman</td><td>Pan (Dragon Ball)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Emily Fajardo</td><td>Eri (My Hero Academia)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Greg Dulcie</td><td>Smoker (One Piece)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>John Gremillion</td><td>Dracule Mihawk (One Piece)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Johnny Yong Bosch</td><td>Ichigo (Bleach), Giyu (Demon Slayer), Sabo (One Piece)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Kara Edwards</td><td>Videl, Goten (Dragon Ball)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Lauren Landa</td><td>Annie Leonhart (Attack on Titan)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Leah Clark</td><td>Himiko Toga (My Hero Academia)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Linda Young</td><td>Frieza (Dragon Ball Z)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Lisa Ortiz</td><td>Amy Rose (Sonic X)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Macy Anne Johnson</td><td>Child Big Mom (One Piece)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Meredith McCoy</td><td>Android 18 (Dragon Ball)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>R. Bruce Elliott</td><td>Whitebeard (One Piece)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Sandy Fox</td><td>Sailor Chibi Moon (Sailor Moon)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Stephanie Young</td><td>Nico Robin (One Piece)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Tiffany Vollmer</td><td>Bulma (Dragon Ball)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Tyler Walker</td><td>Gang Orca (My Hero Academia)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Wendee Lee</td><td>Faye Valentine (Cowboy Bebop)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Wendy Powell</td><td>Envy (FMA: Brotherhood)</td><td class='text-nowrap'><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Shawn Gann</td><td><em>Kaiju No. 8 (upcoming Funko Pop line)</em></td><td class="text-nowrap"><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Amanda Gish</td><td>Kinoko Komori (My Hero Academia)</td><td class="text-nowrap"><span class="badge bg-success">Yes</span></td></tr>
-<tr><td>Barry Yandell</td><td><em>—</em></td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Bill Butts</td><td><em>—</em></td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Brianna Roberts</td><td><em>—</em></td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Cedric Williams</td><td><em>—</em></td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Howard Wang</td><td>Langa (SK8), Xie Lian (Heaven Official’s Blessing), Anasui (JoJo’s)</td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Jessica Cavanagh</td><td><em>—</em></td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Jim Foronda</td><td><em>—</em></td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Krystal LaPorte</td><td>Mirai Kuriyama (Beyond the Boundary), Misa Takayama (Log Horizon)</td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Lee Quick</td><td><em>—</em></td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Lex Lang</td><td><em>—</em></td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Lisette Diaz</td><td><em>—</em></td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Major Attaway</td><td><em>—</em></td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Marcus Stimac</td><td><em>—</em></td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Marisa Lenti</td><td><em>—</em></td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Morgan Berry</td><td>Thirteen (MHA), Übel (Frieren)</td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Natalie Rose</td><td><em>—</em></td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Oscar Seung</td><td><em>—</em></td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Risa Mei</td><td><em>—</em></td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Tom Laflin</td><td><em>—</em></td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Tyson Rinehart</td><td>Daru (Steins;Gate), Bartolomeo (One Piece)</td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-<tr><td>Veronica Laux</td><td><em>—</em></td><td class='text-nowrap'><span class="badge bg-secondary">No</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-      </section>
-
-      
     </main>
   </div>
 <script src="js/app.js"></script>
 </body>
 </html>
+

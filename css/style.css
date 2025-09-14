@@ -2,7 +2,10 @@
 header {
   background: #efefef;
   padding:.75rem .35rem;
+}
 
+.header-logo {
+  height: 96px;
 }
 /* Hide cover images on mobile */
 @media (max-width: 599px) {
@@ -32,3 +35,26 @@ header {
 /*Pop Table*/
   .table thead th { white-space: nowrap; }
   .form-control::placeholder { color: #6c757d; }
+
+/* ===== Nav pills: outline-dark, pill-shaped ===== */
+.nav.nav-pills .nav-link{
+  border-radius: 50rem; /* pill */
+  border: 1px solid var(--bs-dark);
+  background-color: transparent;
+  color: var(--bs-dark);
+  margin-right: .5rem;
+}
+.nav.nav-pills .nav-link:hover,
+.nav.nav-pills .nav-link:focus{
+  background-color: var(--bs-dark);
+  color: #fff;
+}
+.nav.nav-pills .nav-link:focus-visible{
+  box-shadow: 0 0 0 .25rem rgba(33,37,41,.25);
+}
+.nav.nav-pills .nav-link.active,
+.nav.nav-pills .show > .nav-link{
+  background-color: var(--bs-dark);
+  color: #fff;
+  border-color: var(--bs-dark);
+}
