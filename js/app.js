@@ -27,7 +27,7 @@ const ROSTER = [
   "Emi Lo","Emily Fajardo","Greg Dulcie","Howard Wang","Jessica Cavanagh","Jim Foronda",
   "John Gremillion","Johnny Yong Bosch","Kara Edwards","Krystal LaPorte","Lauren Landa","Leah Clark",
   "Linda Young","Lisa Ortiz","Marcus M. Mauldin","Marcus Stimac","Marisa Lenti","Macy Anne Johnson",
-  "Major Attaway","Meredith McCoy","Morgan Berry","R Bruce Elliott","Sandy Fox","Shawn Gann",
+  "Major Attaway","Meredith McCoy","Morgan Berry","R Bruce Elliott","Sandy Fox","Shawn Gann","Sara Ragsdale",
   "Stephanie Young","Tyler Walker","Veronica Laux","Wendee Lee","Cynthia Cranz","Risa Mei",
   "Oscar Seung","Tom Laflin","Spencer Liles","Lee Quick","Tiffany Vollmer","Chris Cason","Wendy Powell","Lisette Diaz","Zac Loera","Branden Loera"
 ].sort((a,b)=>a.localeCompare(b, undefined, {sensitivity:'base'}));
