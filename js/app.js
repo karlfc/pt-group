@@ -637,8 +637,8 @@ if (els.actorSelect && els.actorRun && els.actorCopy && els.actorRoles) {
               : actorName }
             <small class="text-secondary">(${count})</small>
             ${ includesRankingOfKings
-                ? '<span class="badge bg-success ms-2">Includes Ranking of Kings</span>'
-                : '<span class="badge bg-secondary ms-2">No Ranking of Kings</span>' }
+                ? '<span class="badge bg-success ms-2"></span>'
+                : '<span class="badge bg-secondary ms-2"></span>' }
           </h3>
           <ul id="actor-roles-list" class="list-group" aria-label="Roles list for ${actorName}">${list}</ul>
         </div>
